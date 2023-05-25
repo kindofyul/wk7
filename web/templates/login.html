@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+</head>
+<body>
+    <!--'login' url로 POST 요청-->
+    <form action = "{% url 'login' %}" method = "POST" style="text-align: center;">
+		{% csrf_token %}
+        <br>
+        id: <input type="text" name="username"> <br/><br>
+        pw: <input type="password" name="password"> <br/><br>
+        <input type="submit" value="로그인">
+    </form>
+</body>
+</html>

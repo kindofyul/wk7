@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'update' movie.id %}" method="POST">
+        {% csrf_token %}
+        <p>제목: <input type="text" name="title" value = "{{movie.title}}"></p>
+        <p>예매율: <input type="text" name="r_rate" value = "{{movie.r_rate}}"></p>
+        <p>현재상영중: <input type="checkbox" name="status" value = "{{movie.status}}"></p>
+        <p>사진: <input type="file" name = image value = "{{movie.image}}"></p>
+        <p>후기: <textarea name="review" id="" cols="30" rows="10">{{movie.review}}</textarea></p>
+        <button type="submit">작성하기</button><br>
+    </form>
+    <a href="{% url 'home' %}">
+        <button style="margin-top:10px;">홈으로</button>
+    </a>
+
+{% endblock %}

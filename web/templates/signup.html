@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action = "{% url 'signup' %}" method = "POST" style="text-align: center";>
+        {% csrf_token %}
+        <br>
+        id: <input type="text" name="username"> <br/><br>
+        pw: <input type="password" name="password"> <br/><br>
+        <input type="submit" value="회원가입">
+     </form>
+</body>
+</html>

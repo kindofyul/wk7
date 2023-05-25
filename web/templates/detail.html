@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>{{movie.title}}</h1>
+        <br>
+        예매율: {{movie.r_rate}}
+        <br>
+        현재상영중: {{movie.status}}
+        <br>
+        <div>
+        {% if movie.image %}
+        <p><img src = "{{movie.image.url}}" alt="" width = 300></p>
+        {% endif %}
+        </div>
+        후기: {{movie.review}}
+        <br><br>
+        {% if movie.author == request.user %}
+        <a href="{% url 'edit' movie.id %}">
+            <button style="margin-top:10px;">수정하기</button>
+        <br>
+        <a href="{% url 'delete' movie.id %}">
+            <button style="margin-top:10px;">삭제하기</button>
+        <br>
+        {% endif %}
+        <a href="{% url 'home' %}">
+            <button style="margin-top:10px;">홈으로</button>
+        </a>
+    </div>
+
+{% endblock %}
